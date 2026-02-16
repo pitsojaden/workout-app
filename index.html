@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>My Workout Split</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+    }
+    .app {
+      width: 100%;
+      max-width: 480px;
+      padding: 16px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .day {
+      background: #1e293b;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .day-header {
+      padding: 14px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      background: #020617;
+      transition: max-height 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .content ul {
+      padding: 14px 18px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .day.open .content {
+      max-height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+  <h1>MY WORKOUT SPLIT</h1>
+
+  <div class="day" onclick="toggle(this)">
+    <div class="day-header">Monday - Legs</div>
+    <div class="content">
+      <ul>
+        <li>Squats 4x6–8</li>
+        <li>Romanian Deadlifts 3x8–10</li>
+        <li>Leg Press / Lunges 3x10–12</li>
+        <li>Leg Curls 3x10–12</li>
+        <li>Calf Raises 4x12–15</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day" onclick="toggle(this)">
+    <div class="day-header">Tuesday - Chest + Shoulders + Triceps</div>
+    <div class="content">
+      <ul>
+        <li>Bench Press 4x6–8</li>
+        <li>Overhead Press 4x6–8</li>
+        <li>Incline DB Press 3x10–12</li>
+        <li>Lateral Raises 4x12–15</li>
+        <li>Cable Flyes 3x12–15</li>
+        <li>Close Grip Bench / Dips 3x8–10</li>
+        <li>Overhead Tricep Extension 3x12–15</li>
+        <li>EZ Bar Curls 3x10–12</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day" onclick="toggle(this)">
+    <div class="day-header">Wednesday - Back + Biceps</div>
+    <div class="content">
+      <ul>
+        <li>Deadlifts / Barbell Rows 4x6–8</li>
+        <li>Pull-Ups / Lat Pulldown 4x8–10</li>
+        <li>Seated Cable Rows 3x10–12</li>
+        <li>Face Pulls 3x12–15</li>
+        <li>Barbell Curls 3x8–10</li>
+        <li>Hammer Curls 3x10–12</li>
+        <li>Preacher / Cable Curls 3x12–15</li>
+        <li>Rope Pushdowns 3x12–15</li>
+        <li>Shrugs 4x12–15</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day" onclick="toggle(this)">
+    <div class="day-header">Thursday - Shoulders + Arms</div>
+    <div class="content">
+      <ul>
+        <li>Arnold / Seated DB Press 4x8–10</li>
+        <li>Lateral Raises 4x12–15</li>
+        <li>Rear Delt Flyes 3x12–15</li>
+        <li>Upright Rows / Cable Front Raises 3x10–12</li>
+        <li>Superset: EZ Curls + Skull Crushers 3x10–12</li>
+        <li>Superset: Hammer Curls + Rope Pushdowns 3x12–15</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggle(el) {
+    el.classList.toggle('open');
+  }
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
+</body>
+</html>
